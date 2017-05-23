@@ -5,37 +5,37 @@ const db = require("../models");
 // Routes
 // =============================================================
 
-// GET route for getting all of the burgers
+// GET route for getting all of the foods
 router.get("/", function (req, res) {
-  db.Burger.findAll({})
+  db.Food.findAll({})
     .then(function (results) {
-      res.render('index', {burgers:results})
+      res.render('index', {foods:results})
     })
 });
 
-// POST route for saving a new burger. We can create a burger using the data on req.body
+// POST route for saving a new food. We can create a food using the data on req.body
 router.post("/", function (req, res) {
-  var burger = req.body;
-  var burgerName = burger.burgerName
-  console.log(burger);
-  db.Burger.create({
-    burger_name: burgerName,
-    devoured: burger.devoured
-  }).then((burger) => res.redirect("/"));
+  var food = req.body;
+  var foodName = food.foodName
+  console.log(food);
+  db.Food.create({
+    food_name: foodName,
+    devoured: food.devoured
+  }).then((food) => res.redirect("/"));
 });
 
 router.put("/:id", function(req, res) {
-  var burger = req.body;
-  var devoured = burger.devoured;
+  var food = req.body;
+  var devoured = food.devoured;
   var id = req.params.id;
-  console.log(burger);
-  db.Burger.update({
+  console.log(food);
+  db.Food.update({
     devoured: devoured,
   }, {
     where: {
       id: id
     }
-  }).then((burger) => res.redirect("/"));
+  }).then((food) => res.redirect("/"));
 });
 
 module.exports = router;

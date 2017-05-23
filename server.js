@@ -28,5 +28,5 @@ app.set("view engine", "handlebars");
 app.use("/", routes);
 
 db.sequelize.sync({}).then(function () {
-  app.listen(port, () => console.log("You are now connected"));
+  app.listen(port, () => console.log("You are now connected to port " + port));
 })
