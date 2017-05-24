@@ -1,5 +1,7 @@
 # the-diet-tracker
 
+A to-do list of things to eat     
+
 ### What you can do
 
 - Add items (food) to a list, and use a button to determine whether you have eaten each item.
